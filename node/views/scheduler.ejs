@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planification</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <h1>Bot Prospecting</h1>
+        <nav>
+          <a href="/">Dashboard</a>
+          <a href="/settings">Paramètres</a>
+          <a href="/scheduler">Planification</a>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <h2>Planification</h2>
+        <section class="card">
+          <h3>Créneaux autorisés</h3>
+          <div class="slot-list">
+            <% slots.forEach(slot => { %>
+              <span class="slot"><%= slot %></span>
+            <% }) %>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

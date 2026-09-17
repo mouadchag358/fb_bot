@@ -1,0 +1,19 @@
+{
+  "scanInterval": 30,
+  "defaultLanguage": "fr",
+  "minRelevantScore": 50,
+  "globalStop": false,
+  "scheduler": {
+    "slots": ["09:00", "14:00", "19:00"],
+    "enabled": true
+  },
+  "promo": {
+    "enabled": true,
+    "variants": [
+      "I make modern portfolio websites starting at $10. DM me if you need one.",
+      "I build modern portfolio websites starting at $10. Send me a DM if you're interested.",
+      "Need a simple portfolio website? I can build one starting from $10.",
+      "Looking for an affordable portfolio website? I create responsive websites starting at $10."
+    ]
+  }
+}

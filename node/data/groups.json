@@ -1,0 +1,18 @@
+{
+  "groups": [
+    {
+      "id": "group_001",
+      "name": "Web Developers",
+      "url": "https://www.facebook.com/groups/webdevelopers",
+      "enabled": true,
+      "allowPromotion": true
+    },
+    {
+      "id": "group_002",
+      "name": "Freelance Designers",
+      "url": "https://www.facebook.com/groups/freelancedesigners",
+      "enabled": false,
+      "allowPromotion": false
+    }
+  ]
+}

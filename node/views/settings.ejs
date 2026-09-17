@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paramètres</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <h1>Bot Prospecting</h1>
+        <nav>
+          <a href="/">Dashboard</a>
+          <a href="/settings">Paramètres</a>
+          <a href="/scheduler">Planification</a>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <h2>Paramètres</h2>
+
+        <section class="card settings-form">
+          <label>
+            Intervalle de scan (secondes)
+            <input id="scan-interval" type="number" value="<%= config.scanInterval || 30 %>" />
+          </label>
+
+          <div class="checkbox-row">
+            <label>
+              <input id="global-stop" type="checkbox" <%= config.globalStop ? 'checked' : '' %> />
+              STOP GLOBAL
+            </label>
+          </div>
+
+          <button id="save-settings" class="primary-btn">Enregistrer</button>
+        </section>
+
+        <section class="card">
+          <h3>Groupes</h3>
+          <form id="group-form">
+            <input name="name" placeholder="Nom du groupe" required />
+            <input name="url" placeholder="URL du groupe" required />
+            <label><input name="enabled" type="checkbox" checked /> Activé</label>
+            <label><input name="allowPromotion" type="checkbox" checked /> Promotion autorisée</label>
+            <button type="submit" class="primary-btn">Ajouter</button>
+          </form>
+          <ul id="group-list">
+            <% groups.forEach(group => { %>
+              <li><%= group.name %> - <%= group.enabled ? 'actif' : 'inactif' %> - <%= group.allowPromotion ? 'promo autorisée' : 'promo bloquée' %></li>
+            <% }) %>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

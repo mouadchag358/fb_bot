@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook Freelance Bot</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <h1>Bot Prospecting</h1>
+        <nav>
+          <a href="/">Dashboard</a>
+          <a href="/settings">Paramètres</a>
+          <a href="/scheduler">Planification</a>
+        </nav>
+        <button id="stop-global" class="danger-btn">STOP GLOBAL</button>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <h2>Dashboard</h2>
+          <button id="scan-btn" class="primary-btn">Lancer le scan</button>
+        </header>
+
+        <section class="summary-grid">
+          <div class="card">
+            <span>Posts trouvés</span>
+            <strong><%= summary.totalPosts %></strong>
+          </div>
+          <div class="card">
+            <span>Très pertinents</span>
+            <strong><%= summary.veryRelevant %></strong>
+          </div>
+          <div class="card">
+            <span>Réponses en attente</span>
+            <strong><%= summary.pendingReplies %></strong>
+          </div>
+          <div class="card">
+            <span>Publications planifiées</span>
+            <strong><%= summary.scheduled %></strong>
+          </div>
+        </section>
+
+        <section class="table-card">
+          <h3>Prospects</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Score</th>
+                <th>Langue</th>
+                <th>Catégorie</th>
+                <th>Groupe</th>
+                <th>Post</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% posts.forEach(post => { %>
+                <tr>
+                  <td><%= post.score %></td>
+                  <td><%= post.language %></td>
+                  <td><%= post.category %></td>
+                  <td><%= post.groupName || 'N/A' %></td>
+                  <td><%= post.text.slice(0, 80) %></td>
+                  <td>
+                    <div class="actions">
+                      <button data-id="<%= post.id %>" class="small-btn view">Voir</button>
+                      <button data-id="<%= post.id %>" class="small-btn reply">Générer réponse</button>
+                      <button data-id="<%= post.id %>" class="small-btn edit">Modifier</button>
+                      <button data-id="<%= post.id %>" class="small-btn publish">Publier</button>
+                      <button data-id="<%= post.id %>" class="small-btn ignore">Ignorer</button>
+                    </div>
+                  </td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="promo-panel">
+          <h3>Promotions</h3>
+          <textarea id="promo-text" rows="4">I make modern portfolio websites starting at $10. DM me if you need one.</textarea>
+          <button id="prepare-promo" class="primary-btn">Préparer promotion</button>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
